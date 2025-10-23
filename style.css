@@ -1,0 +1,265 @@
+/*
+ * Global Stylesheet
+ *
+ * This file defines the look and feel for the personal website. The
+ * design takes inspiration from the clean and modern layout found on
+ * harrylaw.co.uk. Colour variables are declared up‑front to make
+ * adjustments easy. All text and layout spacing are configured to
+ * remain readable on both large monitors and smaller mobile screens.
+ */
+
+/* Colour palette */
+:root {
+  /* soft neutral background similar to the inspiration site */
+  --background: #f7f5f1;
+  /* card backgrounds use a slightly darker neutral tone */
+  --card-bg: #e9ded1;
+  /* primary accent used for links and buttons */
+  --primary: #1262e2;
+  /* secondary accent used for alternate buttons */
+  --secondary: #7f56d9;
+  /* tertiary accent for the last button */
+  --tertiary: #8f4fd4;
+  /* dark text colour */
+  --dark: #222;
+  /* light text colour */
+  --light: #fff;
+}
+
+/* Reset body margin and set global font */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  font-family: 'Poppins', sans-serif;
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+/* Header bar with logo and navigation */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: var(--background);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Site title / logo */
+.logo {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+/* Navigation container */
+.nav {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation links */
+.nav a {
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+/* Underline effect for active page */
+.nav a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary);
+}
+
+/* Hover effect for navigation links */
+.nav a:hover {
+  color: var(--primary);
+}
+
+/* Hero section shared across pages */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 70vh;
+  padding: 2rem;
+}
+
+/* Profile card placed on left side */
+.profile-card {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  margin: 1rem;
+  flex: 1 1 300px;
+  max-width: 320px;
+}
+
+/* Round avatar image */
+.profile-card img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Name within card */
+.profile-card h2 {
+  text-align: center;
+  margin: 1rem 0 0.5rem;
+  font-size: 1.4rem;
+}
+
+/* Short tagline under name */
+.profile-card p {
+  text-align: center;
+  font-size: 0.9rem;
+  margin: 0;
+  color: #555;
+}
+
+/* Right content area */
+.hero-content {
+  flex: 2 1 400px;
+  margin: 1rem;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+}
+
+/* Button group styling */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Base style for buttons */
+.buttons a {
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  border-width: 2px;
+  border-style: solid;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* CV button inherits primary accent */
+.buttons a.cv {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.buttons a.cv:hover {
+  background-color: var(--primary);
+  color: var(--light);
+}
+
+/* Research button inherits secondary accent */
+.buttons a.research {
+  border-color: var(--secondary);
+  color: var(--secondary);
+}
+.buttons a.research:hover {
+  background-color: var(--secondary);
+  color: var(--light);
+}
+
+/* Contact button inherits tertiary accent */
+.buttons a.contact {
+  border-color: var(--tertiary);
+  color: var(--tertiary);
+}
+.buttons a.contact:hover {
+  background-color: var(--tertiary);
+  color: var(--light);
+}
+
+/* Footer styling */
+footer {
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Social links fixed to bottom right */
+.social-links {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.social-links a {
+  color: var(--primary);
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-3px);
+}
+
+/* Give a fixed size and fill colour to inline SVG icons within social-links.
+   Embedding the SVGs directly avoids external network requests and
+   ensures consistent rendering across different hosts. */
+.social-links svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: var(--primary);
+  display: block;
+}
+
+/* Sidebar sticks below the header at a fixed offset */
+.profile-card {
+  position: sticky;
+  top: 5rem;   /* ≈ header height + spacing */
+  transform: none;
+}
+
+.hero { align-items: flex-start; }
+
+/* Adjust layout for smaller screens */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-content {
+    margin-top: 2rem;
+  }
+  .buttons {
+    justify-content: center;
+  }
+}
