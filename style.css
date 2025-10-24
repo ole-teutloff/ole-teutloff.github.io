@@ -263,3 +263,62 @@ footer {
     justify-content: center;
   }
 }
+
+/* --- Mobile + fluid sizing improvements --- */
+
+/* Constrain page width and allow wrapping */
+.hero { max-width: 1100px; margin: 0 auto; }
+
+/* Fluid type so headings don’t overflow on phones */
+.hero-content h1 { font-size: clamp(1.75rem, 2.5vw + 1rem, 2.8rem); }
+.hero-content p  { font-size: clamp(1rem, 1vw + 0.85rem, 1.1rem); }
+
+/* Make all images scale down */
+img { max-width: 100%; height: auto; }
+
+/* Header can wrap; links have touch-friendly hit areas */
+header { flex-wrap: wrap; gap: 0.75rem 1rem; }
+.nav { flex-wrap: wrap; gap: 0.75rem 1rem; }
+.nav a { padding: 0.75rem 0.25rem; }
+
+/* Disable sticky sidebar on small screens to avoid overlap */
+@media (max-width: 768px) {
+  .profile-card { position: static; top: auto; }
+}
+
+/* Center and stack hero content on mobile (builds on existing rule) */
+@media (max-width: 768px) {
+  .hero { text-align: center; }
+  .hero-content { margin-top: 1.5rem; }
+}
+
+/* Buttons become full-width rows on very small screens */
+@media (max-width: 480px) {
+  .buttons a { flex: 1 1 100%; text-align: center; }
+}
+
+/* Keep the avatar reasonable on phones */
+@media (max-width: 480px) {
+  .profile-card img { width: 160px; height: 160px; }
+}
+
+/* Move floating social links out of the way on mobile */
+@media (max-width: 768px) {
+  .social-links {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1rem 0;
+  }
+}
+
+/* Make embedded PDFs responsive */
+.hero-content object { width: 100%; height: min(70vh, 600px); }
+
+/* Utility for icon/text rows (used on Contact) */
+.row { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem; }
+@media (max-width: 480px) { .row { justify-content: center; } }
+
+@media (max-width: 400px) {
+  .logo { flex: 1 0 100%; }
+}
