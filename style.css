@@ -48,6 +48,13 @@ header {
   z-index: 100;
 }
 
+/* Image performance */
+img {
+  loading: lazy;
+  width: auto;
+  height: auto;
+}
+
 /* Site title / logo */
 .logo {
   font-size: 1.6rem;

@@ -4,9 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ole Teutloff | Contact</title>
+
+    <!-- Preload and preconnect for faster font rendering -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    >
+
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
       rel="stylesheet"
+      media="all"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -24,7 +35,9 @@
       <div class="profile-card">
         <img
           src="assets/images/profile.png"
-          alt="Placeholder profile image of site owner"
+          alt="Ole Teutloff portrait"
+          loading="eager"
+          fetchpriority="high"
         />
         <h2>Ole Teutloff</h2>
         <p>AI and labour markets, inequality and computational social science at University of Oxford.</p>
